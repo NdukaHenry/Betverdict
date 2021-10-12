@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>betverdict</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../client/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../client/CSS/header.css">
+    <link rel="stylesheet" type="text/css" href="../client/CSS/firstpage.css">
+    <link rel="stylesheet" type="text/css" href="../client/CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../client/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    
+</head>
+
+<body>
+
+    <!---------------------header starts here------------------------->
+    <header class="header">
+        <div class="container">
+            <div class="row justify-content-between align-item-center">
+                <div class="logo">
+                    <a href=""><img src="../client/images/betVerdict logo_forWeb.png" alt="logo"></a>
+                </div>
+
+                <i class="fas fa-sort-down nav-shift"></i>
+                    
+                <nav class="navigation">
+                    <ul>
+                        <li class="nav-item"><a href="#">Home</a></li>
+                        <li class="nav-item"><a href="#freetips">Freetips</a></li>
+                   
+                    </ul>
+                </nav>
+            </div>
+            
+        </div>
+    </header>
+      <!---------------------header ends here----------------------->
+
+      <!---------------------home section starts here----------------------->
+    <section class="home-section" id="home">
+        <div class="home-bg"></div>
+        <div class="welcome-container">
+            <div class="row min-vh-100">
+                <div class="welcome-col welcome-text container">
+                    <div class="inner-text-area">
+                        <h1>Best Football Prediction Site</h1>
+                        <h2>Best Prediction Site</h2>
+                        <h3>indeed, the game of football may be changing but the world
+                        best football prediction site keeps getting better than ever, 
+                        with our maximum winning streaks, betverdict is unmatched.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!---------------------home ends here--------------------------------->
+
+<!--------------------------
+    freetips section
+---------------------------->
+   
+    <section class="freetips-section sec-padding" id="freetips">
+        <div class="container" id="tipstable">
+            <div class=inner-container>
+                <div class="section-col">
+                    <div class="section-title">
+                        <h3>Free daily football tips</h3>
+                    </div>
+                    <div class="row">
+                        <div class="table-tabs">
+                            <button type="button" class="table-tab-item" data-target="#yesterday">Yesterday</button>
+                            <button type="button" class="table-tab-item active" data-target="#today">Today</button>
+                            <button type="button" class="table-tab-item" data-target="#tomorrow">Tomorrow</button>
+                        </div>
+                    </div>
+                    <div class="table-tab-content active" id="today">
+                        <table class="table-props">
+                            <thead>
+                                <tr>
+                                    <th>TIME</th>
+                                    <th>LEAGUE</th>
+                                    <th>MATCH</th>
+                                    <th>TIP</th>
+                                    <th>RESULT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="color1" th:each="tips: ${listCurrentTips}">
+                                <td th:text="${tips.time}"></td>
+                                <td th:text="${tips.league}"></td>
+                                <td>
+                                    <span th:text="${tips.team1}"></span> VS <span th:text="${tips.team2}"></span>
+                                </td>
+                                <td th:text="${tips.tip}"></td>
+                                <td>?-?</td>
+                            </tr>
+  
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-tab-content" id="yesterday">
+                        <table class="table-props">
+                            <thead>
+                                <tr>
+                                    <th>TIME</th>
+                                    <th>LEAGUE</th>
+                                    <th>MATCH</th>
+                                    <th>TIP</th>
+                                    <th>RESULT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="color1" th:each="tips: ${listPreviousTips}">
+                                <td th:text="${tips.time}"></td>
+                                <td th:text="${tips.league}"></td>
+                                <td>
+                                    <span th:text="${tips.team1}"></span> VS <span th:text="${tips.team2}"></span>
+                                </td>
+                                <td th:text="${tips.tip}"></td>
+                                <td th:text="${tips.score}"></td>
+                            </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-tab-content" id="tomorrow">
+                        <table class="table-props">
+                            <thead>
+                                <tr>
+                                    <th>TIME</th>
+                                    <th>LEAGUE</th>
+                                    <th>MATCH</th>
+                                    <th>TIP</th>
+                                    <th>RESULT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="color1" th:each="tips: ${listNextTips}">
+                                <td th:text="${tips.time}"></td>
+                                <td th:text="${tips.league}"></td>
+                                <td>
+                                    <span th:text="${tips.team1}"></span> VS <span th:text="${tips.team2}"></span>
+                                </td>
+                                <td th:text="${tips.tip}"></td>
+                                <td>?-?</td>
+                            </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+           
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    
+
+  
+ <section>
+ <footer>
+ <div>
+            
+            <div class="row">
+                <div class="copyright">
+                    &copy; 2021 - Betvedict.com
+                </div>
+            </div>
+        </div>
+    </footer>
+    </section>
+      <!---------------------footer section ends here----------------------->
+<script src="../client/js/script.js"></script> 
+</body>
+</html>

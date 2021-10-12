@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Create Tip Form</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="../admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="../admin/css/sb-admin.css" rel="stylesheet">
+    
+    
+   
+
+  </head>
+
+  <body class="bg-dark">
+
+    <div class="container">
+      <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Create Tip</div>
+        <div class="card-body">
+          <form th:action="@{/savetip}" th:object="${tips}" method="POST">
+            <div class="form-group">
+              <div class="form-label-group">
+                <input th:field="*{date}" type="date" id="inputDate" class="form-control" placeholder="Date" required="required">
+                <label for="inputDate">Date</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input th:field="*{league}" type="text" id="inputLeague" class="form-control" placeholder="League" required="required">
+                <label for="inputLeague">League</label>
+              </div>
+            </div>
+            
+          
+          <div class="form-group">
+              <div class="form-label-group">
+                <select th:field="*{productType}" class="form-control" required="required">
+               <option  th:value="NULL">Enter a Product Type</option>
+               <option th:value="Free">Free</option>
+              <option  th:each="products : ${listProducts}" th:text="${products.productName}"  th:value="${products.productName}"></option>
+                </select>
+               
+              </div>
+            </div>
+            
+            
+             <div class="form-group">
+              <div class="form-label-group">
+                <input th:field="*{score}" type="text" id="inputScores" class="form-control" placeholder="Scores">
+                <label for="inputScores">Scores(e.g 2-2)</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-label-group">
+                <input th:field="*{team1}" type="text" id="Team1 Name" class="form-control" placeholder="Team1 Name" required="required">
+                <label for="Team1 Name">Team-1 Name</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-label-group">
+                <input  th:field="*{team2}" type="text" id="Team2 Name" class="form-control" placeholder="Team2 Name" required="required">
+                <label for="Team2 Name">Team-2 Name</label>
+              </div>
+            </div>
+        
+        
+            <div class="form-group">
+              <div class="form-label-group">
+                <input th:field="*{time}" type="time" id="inputTime" class="form-control" placeholder="Time" required="required">
+                <label for="inputTime">Time</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-label-group">
+                <input th:field="*{tip}" type="text" id="Tip" class="form-control" placeholder="Tip" required="required">
+                <label for="Tip">Tip</label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-label-group">
+                <select th:field="*{tipStatus}"  class="form-control">
+               <option  th:value="NULL">Enter Tip Status</option>
+              <option th:value="Success">Success</option>
+              <option th:value="Fail">Fail</option>
+                </select>
+                
+              </div>
+            </div>
+           
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
+            <a class="btn btn-primary btn-block" id="btn-for-cat" th:href="@{/dashboard}">Return-To-Dashboard</a>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../admin/vendor/jquery/jquery.min.js"></script>
+    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+    
+     <script>
+    $(document).ready(function(){
+    	$("select.form-control").change(function(){
+    		var selectedMarketType = $(this).children("option:selected").val();
+    		alert("You have Selected the Market Category - " +selectedMarketCategory);
+    	})
+    })
+    
+    </script>
+
+  </body>
+
+</html>

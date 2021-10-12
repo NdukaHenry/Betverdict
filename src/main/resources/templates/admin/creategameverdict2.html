@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Create Game For Verdict</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="../admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="../admin/css/sb-admin.css" rel="stylesheet">
+    
+    
+    
+
+  </head>
+
+  <body class="bg-dark">
+
+    <div class="container">
+      <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Create Game For Verdict</div>
+        <div class="card-body">
+          <form th:object="${formList}" action="#" th:action="@{/saveGameVerdict}" method=POST enctype="multipart/form-data">
+          <div class="form-group">
+          
+          <div class="form-label-group">
+                <input type="date" name="date" id="inputDate" class="form-control" placeholder="Date" required="required">
+                <label for="inputDate">Date</label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" name="team1Name" id="team1Name" class="form-control" placeholder="Team1 Name" required="required" autofocus="autofocus">       
+                <label for="team1Name">Team1 Name</label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" name="team2Name"id="team2Name" class="form-control" placeholder="Team2 Name" required="required" autofocus="autofocus">       
+                <label for="team2Name">Team2 Name</label>
+              </div>
+              
+              <div class="form-label-group">
+                <input type="file" name="file1" id="team1Image"  class="form-control" placeholder="Team1 Image" required="required" autofocus="autofocus">       
+                <label for="team1Image">Team1 Image</label> 
+              </div>
+              <div class="form-label-group">
+                <input type="file"  name="file2" id="team2Image"  class="form-control" placeholder="Team2 Image" required="required" autofocus="autofocus">       
+                <label for="team2Image">Team2 Image</label> 
+              </div>
+                 
+                 
+                 
+                 <div>
+                    <table>
+                      <thead>
+                         <tr>
+                              <th>Statistic Name</th>
+                              <th>Team1 Point</th>
+                              <th>Team2 Point</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                          <tr th:each="verdictAnalysis,itemStat : *{analysisList}">
+                              <td>
+                              <input th:field="*{analysisList[__${itemStat.index}__].statName}"/>
+                              </td>
+                              
+                              <td>
+                              <input th:field="*{analysisList[__${itemStat.index}__].team1Point}"/>
+                              </td>
+                              
+                              <td>
+                              <input th:field="*{analysisList[__${itemStat.index}__].team2Point}"/>
+                              </td>
+                          </tr>
+                          
+                       </tbody>
+                    </table>
+                 
+                 </div>
+                 
+                 
+                 
+              <div class="form-label-group">
+                <textarea  name="verdict" class="form-control" placeholder="Verdict" required="required" autofocus="autofocus"></textarea>       
+                 
+              </div>
+            </div>
+           
+           
+           
+            
+            <button type="submit" class="btn btn-primary btn-block">Create</button>
+            <a class="btn btn-primary btn-block" id="btn-for-cat" th:href="@{/dashboard}">Return-To-Dashboard</a>
+            
+          </form>
+                       
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../admin/vendor/jquery/jquery.min.js"></script>
+    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+
+  </body>
+
+</html>

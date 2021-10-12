@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Create Free Market Category</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="../admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="../admin/css/sb-admin.css" rel="stylesheet">
+
+  </head>
+
+  <body class="bg-dark">
+
+    <div class="container">
+      <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Create a Market Category</div>
+        <div class="card-body">
+          <form action="#" th:action="@{/saveCategoryForFree}" th:object="${freeMarketCategory}" method=POST>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" th:field="*{marketName}" id="inputEmail" class="form-control" placeholder="Category Name" required="required" autofocus="autofocus">
+                 <div class="alert alert-warning" th:if="${#fields.hasErrors('marketName')}" th:errors="*{marketName}"></div>
+                <label for="inputEmail">Category Name</label>
+              </div>
+            </div>
+           
+            
+            <button type="submit" class="btn btn-primary btn-block">Create</button>
+            <a class="btn btn-primary btn-block" id="btn-for-cat" th:href="@{/freemarket}">Return-To-Dashboard</a>
+            
+          </form>
+                       
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../admin/vendor/jquery/jquery.min.js"></script>
+    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  </body>
+
+</html>
