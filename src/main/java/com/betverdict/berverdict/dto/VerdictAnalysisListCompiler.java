@@ -1,4 +1,4 @@
-package com.betverdict.betverdict.dto;
+package com.betverdict.berverdict.dto;
 
 import java.util.ArrayList;
 import java.util.List;

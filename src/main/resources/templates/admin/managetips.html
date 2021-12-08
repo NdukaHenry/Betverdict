@@ -26,7 +26,6 @@
     <!--- My stlye for my content -->
     <link href="../admin/css/mycontent.css" rel="stylesheet">
     
-   
 
   </head>
 
@@ -266,8 +265,8 @@
                           <td th:text="${tips.score}"></td>
                           <td th:text="${tips.tipStatus}"></td>
                           <td th:text="${tips.productType}"></td>
-                          <td><a class="edit" th:href="@{/showformfortipupdate(id=${tips.id})}">edit</a></td>
-                          <td><a class="delete"  th:href="@{/tipdelete(id=${tips.id})}">delete</a></td>
+                          <td><a class="edit" type="button" th:href="@{/showformfortipupdate(id=${tips.id})}">edit</a></td>
+                          <td><a class="delete" type="button"  th:href="@{/tipdelete(id=${tips.id})}">delete</a></td>
                           
              
                       </tr>

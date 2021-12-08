@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.betverdict.berverdict.dto.VerdictAnalysisListCompiler;
 import com.betverdict.berverdict.entities.VerdictAnalysis;
 import com.betverdict.berverdict.services.GameVerdictService;
-import com.betverdict.betverdict.dto.VerdictAnalysisListCompiler;
 
 @Controller
 public class GameVerdictController {
