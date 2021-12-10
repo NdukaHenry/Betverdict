@@ -11,7 +11,7 @@
 	<groupId>com.betverdict</groupId>
 	<artifactId>berverdict</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>berverdict</name>
 	<description>Sport Blog</description>
 	<properties>
